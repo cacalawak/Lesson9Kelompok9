@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
 }
 apply plugin: 'kotlin-kapt'
 
@@ -42,6 +42,7 @@ dependencies {
     implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
     // Room components
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation 'androidx.room:room-common:2.4.2'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
     // Lifecycle components
