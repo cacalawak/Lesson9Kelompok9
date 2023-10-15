@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
+    id("com.google.devtools.ksp")
 }
 apply plugin: 'kotlin-kapt'
 
@@ -37,20 +38,20 @@ android {
 }
 
 dependencies {
-
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
     // Room components
-    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
-    implementation 'androidx.room:room-common:2.4.2'
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation 'androidx.room:room-common:2.5.2'
+    implementation 'androidx.room:room-ktx:2.5.2'
+    ksp("androidx.room:room-compiler:2.5.0")
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
     // Lifecycle components
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
     // Kotlin components
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.32"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
     // UI
